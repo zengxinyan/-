@@ -9,7 +9,7 @@
 <body>
     <center>
         <h1 style="color:red">学生登录</h1>
-            <form id="indexform" name="indexForm" action="studentLoginCheck.jsp" method="post">
+            <form action="studentLoginCheck.jsp" method="post">
                 <table border="0">
                     <tr>
                         <td>学号：</td>
@@ -23,7 +23,7 @@
                 </table>
             <br>
                 <input type="submit" value="登录">
-                <input type="button" value="教师" onclick="location.href='http://localhost:8080/work/Login/teacherLogin.jsp'" />
+                <input type="button" value="返回" onclick="location.href='http://localhost:8080/work/index.jsp'" />
                 <input type="button" value="注册" onclick="location.href='http://localhost:8080/work/Login/studentRegister.jsp'" />
             </form>
             

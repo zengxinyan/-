@@ -9,10 +9,10 @@
 <body>
     <center>
         <h1 style="color:red">教师注册</h1>
-            <form id="indexform" name="indexForm" action="teacherRegisterCheck.jsp" method="post">
+            <form action="teacherRegisterCheck.jsp" method="post">
                 <table border="0">
                     <tr>
-                        <td>教工号：</td>
+                        <td>工号：</td>
                         <td><input type="text" name="sno"></td>
                     </tr>
                     <tr>

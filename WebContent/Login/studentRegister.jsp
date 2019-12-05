@@ -9,7 +9,7 @@
 <body>
     <center>
         <h1 style="color:red">学生注册</h1>
-            <form id="indexform" name="indexForm" action="studentRegisterCheck.jsp" method="post">
+            <form action="studentRegisterCheck.jsp" method="post">
                 <table border="0">
                     <tr>
                         <td>学号：</td>

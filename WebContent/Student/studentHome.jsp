@@ -6,11 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>学生主页</title>
 </head>
-<body>
+<jsp:useBean id="db" class="bean.DbHelper" scope="page"/>
 <body>
     <center>
-        <h1 style="color:red">学生主页</h1>
-           
+        <h1 style="color:red">学生主页</h1>      
                 <table border="0">
                     <tr>
                         <td>学生:${name}</td>
@@ -18,9 +17,6 @@
                         <td>已修读学分:${tolCredit}分</td>
                     </tr>
                 </table>
-            
-            
     </center>
-</body>
 </body>
 </html>
