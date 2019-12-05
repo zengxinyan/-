@@ -16,6 +16,13 @@
                         <td>学号:${id}</td>
                         <td>已修读学分:${tolCredit}分</td>
                     </tr>
+                    <tr>
+                        <td><a href="studentInfo.jsp?id=${id}">个人信息</a></td>
+                    </tr>
+                    <tr>
+                    <td>查看成绩: <a href="studentBx.jsp?id=${id}">必修</a></td>
+                    <td><a href="studentXx.jsp?id=${id}">选修</a></td>
+                    </tr>
                 </table>
     </center>
 </body>
