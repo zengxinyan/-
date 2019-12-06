@@ -6,7 +6,7 @@ public class DbHelper {
     private String driverStr = "org.postgresql.Driver";
     private String connStr = "jdbc:postgresql://localhost:5432/postgres";
     private String dbusername = "xy";
-    private String dbpassword = "zxy98923";
+    private String dbpassword = "";
     private Connection conn = null;
     private Statement stmt = null;
     
