@@ -16,7 +16,7 @@ public class DbHelper {
         {
             Class.forName(driverStr);
             conn = DriverManager.getConnection(connStr, dbusername, dbpassword);
-            stmt = conn.createStatement();
+            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
         } 
         catch (Exception ex) {
             System.out.println(ex.getMessage());

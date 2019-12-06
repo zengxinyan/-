@@ -11,28 +11,49 @@
 <%
     request.setCharacterEncoding("UTF-8");
     String id=(String)request.getParameter("id");
-
+    String[] cId=new String[10];
+    String[] name=new String[10];
+    int[] credit=new int[10];
+    int[] score=new int[10];
+    int cnt=0;
+    
     request.getSession();
     //下面是数据库操作 *代表所有值
     String sql="select * from student_course where studentId="+"'"+id+"'";//定义一个查询语句
     ResultSet rs=db.executeQuery(sql);//运行上面的语句
-    if(rs.next())
+    while(rs.next())
     {
-    	String cId = (String) rs.getObject("courseId");
-    	sql="select * from course where id="+"'"+cId+"'";//定义一个查询语句
-    	rs=db.executeQuery(sql);//运行上面的语句
-    	if(rs.next())
-    	{
-        	out.print(rs.getObject("name"));
-        	out.print(rs.getObject("credit"));
-    	}
-    }
-    else 
-    {
-        out.print("课表为空");
+    	cId[cnt] = (String) rs.getObject("courseId");
+    	cnt++;
     }
     
+    int cnt1=0;
+	for(int i=0;i<cnt;i++)
+	{
+		sql = "select * from course where id="+"'"+cId[i]+"' and class = '必修'";//定义一个查询语句
+		rs = db.executeQuery(sql);//运行上面的语句
+		if(rs.next())
+		{
+			name[cnt1] = (String) rs.getObject("name");
+			credit[cnt1++] = rs.getInt("credit");
+		}
+	}
+    for(int i=0;i<cnt1;i++)
+    {
+    	sql = "select * from grade where studentId="+"'"+id+"' and courseId = '"+cId[i]+"'";//定义一个查询语句
+		rs = db.executeQuery(sql);//运行上面的语句
+		if(rs.next())
+		{
+			score[i] = rs.getInt("tolScore");
+		}
+    }
 %>
-<p><%=id %></p>
+<center>
+	<h1 style="color:red">必修课程</h1>    
+	  <% for(int i=0;i<cnt1;i++){ %>
+		<p>课程：<%=name[i] %>  学分：<%=credit[i] %>  成绩：<%=score[i] %></p>
+	  <% } %>
+		<input type="button" value="返回" onclick="location.href='studentHome.jsp'" />
+</center>
 </body>
 </html>

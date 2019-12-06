@@ -22,6 +22,7 @@
         if(password.equals(rs.getObject("password"))){
         	session.setAttribute("name", rs.getObject("name"));
         	session.setAttribute("id", rs.getObject("id"));
+        	session.setAttribute("academy", rs.getObject("academy"));
         	session.setAttribute("tolCredit", rs.getObject("tolCredit"));
             response.sendRedirect("../Student/studentHome.jsp");
         }
