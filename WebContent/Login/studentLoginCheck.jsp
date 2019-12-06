@@ -10,12 +10,12 @@
 <jsp:useBean id="db" class="bean.DbHelper" scope="page"/>
 <%
     request.setCharacterEncoding("UTF-8");
-    String username=(String)request.getParameter("username");
+    String id=(String)request.getParameter("id");
     String password=(String)request.getParameter("password");
     
     request.getSession();
     //下面是数据库操作 *代表所有值
-    String sql="select * from student where id="+"'"+username+"'";//定义一个查询语句
+    String sql="select * from student where id="+"'"+id+"'";//定义一个查询语句
     ResultSet rs=db.executeQuery(sql);//运行上面的语句
     if(rs.next())
     {

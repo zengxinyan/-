@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>student</title>
+<title>必修</title>
 </head>
 <body>
 <jsp:useBean id="db" class="bean.DbHelper" scope="page"/>
@@ -43,7 +43,7 @@
 	}
     for(int i=0;i<cnt1;i++)
     {
-    	sql = "select * from grade where studentId="+"'"+id+"' and courseId = '"+cId[i]+"'";//定义一个查询语句
+    	sql = "select * from grade where studentId="+"'"+id+"' and courseId = '"+bxcId[i]+"'";//定义一个查询语句
 		rs = db.executeQuery(sql);//运行上面的语句
 		if(rs.next())
 		{
@@ -62,10 +62,30 @@
     }
 %>
 <center>
-	<h1 style="color:red">必修课程</h1>    
+	<h1 style="color:red">必修课程</h1> 
+	  <table>
+	  	<tr>
+	  	  <td>课程</td>
+	  	  <td>学分</td>
+	  	  <td>成绩</td>
+	  	  <td>要求</td>
+	  	  <td>公告</td>
+	  	</tr>
 	  <% for(int i=0;i<cnt1;i++){ %>
-		<p>课程：<%=name[i] %>  学分：<%=credit[i] %>  成绩：<%=score[i] %>  公告：<%=notice[i] %>  要求：<%=require[i] %></p>
+		<tr>
+		  <td><%=name[i] %></td>
+		  <td><%=credit[i] %></td>
+		  <% if(score[i]!=0){ %>
+		  <td><%=score[i] %></td>
+		  <% } %>
+		  <% if(score[i]==0){ %>
+		  <td>无</td>
+		  <% } %>
+		  <td><%=require[i] %></td>
+		  <td><%=notice[i] %></td>
+		</tr> 
 	  <% } %>
+	  </table> 
 		<input type="button" value="返回" onclick="location.href='studentHome.jsp'" />
 </center>
 </body>

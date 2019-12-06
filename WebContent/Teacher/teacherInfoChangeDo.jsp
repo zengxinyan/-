@@ -4,25 +4,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<title></title>
 </head>
 <body>
 <jsp:useBean id="db" class="bean.DbHelper" scope="page"/>
 <%
     request.setCharacterEncoding("UTF-8");
-    String sno=(String)request.getParameter("sno");
+	String thisid=(String)request.getParameter("id");
     String password=(String)request.getParameter("password");
-    String sname=(String)request.getParameter("sname");
+    String name=(String)request.getParameter("name");
     String sex=(String)request.getParameter("sex");
     String age=(String)request.getParameter("age");
     String academy=(String)request.getParameter("academy");
 
     request.getSession();
-
-    String sql="insert into teacher values('"+sno+"','"+sname+"','"+password+"','"+sex+"','"+age+"','"+academy+"')";
+    String sql="update teacher set name = "+"'"+name+"',sex="+"'"+sex+"',password="+"'"+password+"',academy="+"'"+academy+"',age="+"'"+age+"'"+"where id ="+"'"+thisid+"'";
     db.execQuery(sql);//执行
-    out.print("<script language='javaScript'> alert('注册成功');</script>");
-    response.setHeader("refresh", "0;url=teacherLogin.jsp");
+    out.print("<script language='javaScript'> alert('修改成功,请重新登录');</script>");
+    response.setHeader("refresh", "0;url=../Login/teacherLogin.jsp");
 %>
 </body>
 </html>

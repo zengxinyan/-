@@ -10,13 +10,16 @@
 <jsp:useBean id="db" class="bean.DbHelper" scope="page"/>
 <%
     request.setCharacterEncoding("UTF-8");
-    String sno=(String)request.getParameter("sno");
+    String sno=(String)request.getParameter("id");
     String password=(String)request.getParameter("password");
     String sname=(String)request.getParameter("sname");
+    String academy=(String)request.getParameter("academy");
+    String sex=(String)request.getParameter("sex");
+    String age=(String)request.getParameter("age");
 
     request.getSession();
 
-    String sql="insert into student values('"+sno+"','"+sname+"','"+password+"')";
+    String sql="insert into student values('"+sno+"','"+sname+"','"+password+"','"+sex+"','"+age+"','"+academy+"',0)";
     db.execQuery(sql);//执行
     out.print("<script language='javaScript'> alert('注册成功');</script>");
     response.setHeader("refresh", "0;url=studentLogin.jsp");

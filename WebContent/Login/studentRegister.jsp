@@ -13,7 +13,12 @@
                 <table border="0">
                     <tr>
                         <td>学号：</td>
-                        <td><input type="text" name="sno"></td>
+                        <td><input type="text" name="id"></td>
+                    </tr>
+                    <tr>
+                        <td>姓名：</td>
+                        <td><input type="text" name="sname">
+                        </td>
                     </tr>
                     <tr>
                         <td>密码：</td>
@@ -21,8 +26,18 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>姓名：</td>
-                        <td><input type="text" name="sname">
+                        <td>学院：</td>
+                        <td><input type="text" name="academy">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>性别：</td>
+                        <td><input type="text" name="sex">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>年龄：</td>
+                        <td><input type="text" name="age">
                         </td>
                     </tr>
                 </table>

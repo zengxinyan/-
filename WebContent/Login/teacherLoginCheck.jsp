@@ -10,7 +10,7 @@
 <jsp:useBean id="db" class="bean.DbHelper" scope="page"/>
 <%
     request.setCharacterEncoding("UTF-8");
-    String username=(String)request.getParameter("username");
+    String username=(String)request.getParameter("id");
     String password=(String)request.getParameter("password");
     
     request.getSession();
@@ -20,6 +20,9 @@
     if(rs.next())
     {
         if(password.equals(rs.getObject("password"))){
+        	session.setAttribute("name", rs.getObject("name"));
+        	session.setAttribute("id", rs.getObject("id"));
+        	session.setAttribute("academy", rs.getObject("academy"));
             response.sendRedirect("../Teacher/teacherHome.jsp");
         }
         else{

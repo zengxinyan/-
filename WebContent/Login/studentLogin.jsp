@@ -13,7 +13,7 @@
                 <table border="0">
                     <tr>
                         <td>学号：</td>
-                        <td><input type="text" name="username"></td>
+                        <td><input type="text" name="id"></td>
                     </tr>
                     <tr>
                         <td>密码：</td>
