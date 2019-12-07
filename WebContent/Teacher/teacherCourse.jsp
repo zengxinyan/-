@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>教师信息</title>
+<title>教师课程</title>
 </head>
 <body>
 <jsp:useBean id="db" class="bean.DbHelper" scope="page"/>
@@ -18,6 +18,7 @@
     int[] courseCredit = new int[10];
     String[] courseClass = new String[10];
     int[] coursePassed = new int[10];
+    String[] courseNotice = new String[10];
     
     request.getSession();
     //下面是数据库操作 *代表所有值
@@ -25,7 +26,8 @@
     ResultSet rs=db.executeQuery(sql);//运行上面的语句
     while(rs.next())
     {
-    	 courseId[cnt++] = (String) rs.getObject("courseId");
+    	 courseNotice[cnt] =  ((String) rs.getObject("notice")).trim();
+    	 courseId[cnt++] = ((String) rs.getObject("courseId")).trim();
     }
     for(int i=0;i<cnt;i++)
     {
@@ -50,16 +52,25 @@
         			<td>属性</td>
         			<td>学分</td>
         			<td>通过率</td>
+        			<td>公告</td>
+        			<td></td>
         			<td></td>
         		</tr>
         	    <%for(int i=0;i<cnt;i++){ %>
         	    <tr>
         			<td><%=courseId[i] %></td>
-        			<td><%=courseName[i] %></td>
+        			<td><a href="teacherCourseStudent.jsp?teacherId=<%=teacherId%>&courseId=<%=courseId[i]%>&courseName=<%=courseName[i]%>"><%=courseName[i] %></a></td>
         			<td><%=courseClass[i] %></td>
         			<td><%=courseCredit[i] %></td>
         			<td><%=coursePassed[i] %>%</td>
-        			<td><a href="teacherCourseStudent.jsp?teacherId=<%=teacherId%>&courseId=<%=courseId[i]%>&courseName=<%=courseName[i]%>">学生</a></td>
+        			<% if(courseNotice[i].equals("无")){ %>
+        			<td> </td>
+        			<td><a href="requireNotice.jsp?teacherId=<%=teacherId%>&courseId=<%=courseId[i]%>">发布公告</a></td>
+        			<% } %>
+        			<% if(!courseNotice[i].equals("无")){ %>
+        			<td><%=courseNotice[i] %></td>
+        			<td><a href="requireNotice.jsp?teacherId=<%=teacherId%>&courseId=<%=courseId[i]%>">更改公告</a></td>
+        		    <% } %>
         		</tr>
         	    <%} %>
         	</table>

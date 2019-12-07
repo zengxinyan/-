@@ -48,7 +48,7 @@
         		</tr>
         	</table>
         	
-			<input type="button" value="返回" onclick="location.href='teacherCourseStudent.jsp?teacherId=<%=teacherId%>&courseId=<%=courseId%>&courseName=${courseName}>'" />
+			<input type="button" value="返回" onclick="location.href='studentBx.jsp?id=<%=studentId%>'" />
 			
 </center>
 </body>

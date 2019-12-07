@@ -42,7 +42,7 @@ public class DbHelper {
         try {
             rs = stmt.executeQuery(s);
         } catch (Exception ex) {
-            System.out.println("执行查询错误！");
+            //System.out.println("执行查询错误！");
         }
         return rs;
     }

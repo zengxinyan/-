@@ -70,8 +70,8 @@
 		  			<td><a href="teacherCourseStudentScore.jsp?teacherId=<%=teacherId%>&courseName=<%=courseName%>&studentName=<%=studentName[i]%>&courseId=<%=courseId%>&studentId=<%=studentId[i]%>">详细成绩</a></td>
 		  			<% } %>
 		  			<% if(studentScore[i]==0){ %>
-		  			<td>无</td>
-		  			<td><a href="teacherCourseStudentScore.jsp?teacherId=<%=teacherId%>&courseName=<%=courseName%>&studentName=<%=studentName[i]%>&courseId=<%=courseId%>&studentId=<%=studentId[i]%>">登记成绩</a></td>
+		  			<td> </td>
+		  			<td><a href="teacherCourseStudentScoreRegister.jsp?teacherId=<%=teacherId%>&courseName=<%=courseName%>&studentName=<%=studentName[i]%>&courseId=<%=courseId%>&studentId=<%=studentId[i]%>">登记成绩</a></td>
 		  			<% } %>
         			
         		</tr>

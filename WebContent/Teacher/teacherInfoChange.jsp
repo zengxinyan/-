@@ -10,7 +10,7 @@
     <center>
     	<% String id=(String)request.getParameter("id");%>
         <h1 style="color:red">修改信息</h1>
-            <form action="teacherInfoChangeDo.jsp?id=<%=id %>" method="post">
+            <form action="teacherInfoChangeDo.jsp?id=<%=id%>" method="post">
                 <table border="0">
                 	<tr>
                         <td>工号：</td>

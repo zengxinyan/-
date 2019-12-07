@@ -38,7 +38,7 @@
 			<p>学院：<%=academy %></p>
 			<p>性别：<%=sex %></p>
 			<p>年龄：<%=age %></p>
-			<p>已修读学分：<%=credit %>分</p>
+			<p>学分：<%=credit%>分</p>
 			<input type="button" value="修改" onclick="location.href='studentInfoChange.jsp?id=<%=id%>'" />
 			<input type="button" value="返回" onclick="location.href='studentHome.jsp'" />
 			
